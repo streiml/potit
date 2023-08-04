@@ -134,7 +134,7 @@
           size="thumb"
         ></classic-board>
       </div>
-      <div v-else style="width: 200px">
+      <div v-else style="max-width: 200px; width: 200px">
         <dart-board
           :board="drawDartboard()"
           playerColor="teal"
@@ -143,26 +143,6 @@
           mode="set"
         ></dart-board>
       </div>
-      <!--
-      <div
-        style="
-          display: grid;
-          margin-bottom: 20px;
-          grid-template-columns: repeat(8, 20px);
-        "
-      >
-        <div
-          v-for="i in 24"
-          :key="i"
-          :style="{
-            background: bgColor(i),
-            outline: '1px solid ' + $PlayerColor['gray'],
-            width: '20px',
-            height: '20px'
-          }"
-        ></div>
-      </div>
-  -->
     </div>
     <div class="bg-light px-2 py-4">
       <h3>Game</h3>

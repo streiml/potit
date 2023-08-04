@@ -57,7 +57,7 @@ import ClassicBoard from '@/components/ClassicBoard.vue'
 import DartBoard from '@/components/DartBoard.vue'
 
 export default {
-  name: 'Navbar',
+  name: 'RankingCompontent',
   data: function () {
     return {
       ranking: {},
@@ -68,8 +68,20 @@ export default {
     getRanking() {
       let counter = 1,
         order = Object.values(this.players).sort(
-          (a, b) => a.getPoints() < b.getPoints()
-        )
+          (a, b) =>  {
+            var pointsA = parseInt(a.getPoints())
+	          var pointsB = parseInt(b.getPoints())
+	          var r = ((pointsA < pointsB) ? 1 : ((pointsA > pointsB) ? -1 : 0));
+	          if(r === 0){
+		        // Next line makes the magic :)
+		          r = (a.id !== null && b.id !== null)?
+			        a.id - b.id : 0
+	          }
+            return r
+          })
+      console.log("getRanking")
+      console.log(order)
+      console.log(this.ranking)
       if (order.length > 0) this.ranking[order[0].getId()] = counter
       for (var i = 1; i < order.length; i++) {
         this.ranking[order[i].getId()] =
@@ -103,6 +115,9 @@ td {
   display: inline-block;
 }
 
+.ranking .board {
+  margin-bottom: 10px;
+}
 .cell {
   font-size: 0px !important;
 }

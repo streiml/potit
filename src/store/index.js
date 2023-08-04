@@ -8,7 +8,7 @@ export default createStore({
       game: 'classic',
       rows: 6,
       cols: 6,
-      units: { 1: 0, 2: 1, 3: 0, 4: 0 },
+      units: { 1: 1, 2: 0, 3: 0, 4: 0 },
       overflow: true,
       margin: true,
       shots: 3,
