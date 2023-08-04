@@ -79,9 +79,7 @@ export default {
 	          }
             return r
           })
-      console.log("getRanking")
-      console.log(order)
-      console.log(this.ranking)
+
       if (order.length > 0) this.ranking[order[0].getId()] = counter
       for (var i = 1; i < order.length; i++) {
         this.ranking[order[i].getId()] =
@@ -115,7 +113,7 @@ td {
   display: inline-block;
 }
 
-.ranking .board {
+.board {
   margin-bottom: 10px;
 }
 .cell {
