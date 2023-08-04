@@ -113,7 +113,7 @@ td {
   display: inline-block;
 }
 
-.board {
+.board, .c-Dartboard {
   margin-bottom: 10px;
 }
 .cell {
